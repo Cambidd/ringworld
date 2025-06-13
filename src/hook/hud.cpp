@@ -18,7 +18,10 @@ static float *screen_width_constant = reinterpret_cast<float *>(0x612268);
 
 extern "C" {
     void hud_calculate_font_height_asm();
-    
+    void damage_indicator_update_screen_width_asm();
+    uint32_t damage_indicator_screen_width = 632;
+    std::byte *damage_indicator_hack_ret = nullptr;
+
     uint32_t hud_calculate_font_height(Font *font_data, bool unk_flag) {
         TagEntry *tag_entry = NULL;
         const TagDataHeader *tag_header = tag_get_data_header();
@@ -46,6 +49,10 @@ extern "C" {
         }
     }
 
+    void damage_indicators_screen_dimensions_hack() {
+        damage_indicator_screen_width = render_get_screen_width() - 8;
+    }
+
     void navpoints_update_screen_dimentions_hack() {
         float new_screen_width_constant = render_get_screen_width();
         float new_screen_center_x_constant_f = new_screen_width_constant / 2.0f;
@@ -66,4 +73,13 @@ void set_up_hud_hooks() {
     *reinterpret_cast<std::uint8_t *>(address + 2) = 0xE8;
     *reinterpret_cast<std::uintptr_t *>(address + 2 + 1) = function - (address + 2 + 5);
     VirtualProtect(reinterpret_cast<void *>(address), 16, old_protection, &old_protection);
+
+    auto *get_width = reinterpret_cast<std::byte *>(0x4B49A8);
+    auto *update_wdith = reinterpret_cast<std::byte *>(damage_indicator_update_screen_width_asm);
+    damage_indicator_hack_ret = reinterpret_cast<std::byte *>(0x4B49AD);
+
+    VirtualProtect(reinterpret_cast<void *>(get_width), 5, PAGE_READWRITE, &old_protection);
+    *reinterpret_cast<std::uint8_t *>(get_width) = 0xE9;
+    *reinterpret_cast<std::uintptr_t *>(get_width + 0x1) = update_wdith - (get_width + 5);
+    VirtualProtect(reinterpret_cast<void *>(get_width), 5, old_protection, &old_protection);
 }

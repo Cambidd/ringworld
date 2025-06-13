@@ -15,3 +15,13 @@ _hud_calculate_font_height_asm:
     popfd
     popad
     ret
+
+.global _damage_indicator_update_screen_width_asm
+_damage_indicator_update_screen_width_asm:
+    pushad
+    pushfd
+    call _damage_indicators_screen_dimensions_hack
+    popfd
+    popad
+    mov ecx, dword ptr [_damage_indicator_screen_width]
+    jmp dword ptr [_damage_indicator_hack_ret]
