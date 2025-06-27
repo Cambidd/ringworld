@@ -1,65 +1,27 @@
 {
     "hs_return": {"address": "0x48d270", "replace": false, "arguments": ["eax", "ecx"]},
-    "structure_bsp_index_evaluate": {"address": "0x482200", "replace": true, "arguments": ["0", "4"]},
     
     "unit_delete_all_weapons": {"address": "0x570a60", "replace": false, "arguments": ["eax"]},
     "unit_add_weapon_to_inventory": {"address": "0x570b00", "replace": false, "arguments": ["ecx", "eax", "0"]},
     
     "object_attach_to_marker": {"address": "0x4f9a90", "replace": false, "arguments": ["0", "4", "esi", "edi"]},
 
-    "memory_map_initialize": {"address": "0x445230", "replace": true},
     "game_state_table_new": {"address": "0x53b3b0", "replace": true, "use_return_value": true, "arguments": ["0", "4", "ebx"]},
     "table_new": {"address": "0x4d3770", "replace": true, "use_return_value": true, "arguments": ["0", "4", "ebx"]},
     "table_remove_element": {"address": "0x4d3910", "replace": false, "arguments": ["eax", "edx"]},
     "crc32_calculate": {"address": "0x4d36d0", "replace": false, "arguments": ["0", "4", "8"]},
-    "players_data_initialize": {"address": "0x476170", "replace": true},
 
-    "math_pow_float": {"address": "0x5ccf80", "replace": true, "arguments": ["st1", "st0"]},
-    "math_matrix_4x3_transform_point": {"address": "0x4cf1e0", "replace": true, "arguments": ["0", "edx", "eax"]},
-
-    "ui_cursor_update": {"address": "0x49a220", "replace": true},
-    "ui_cursor_displace": {"address": "0x49a1b0", "replace": true, "arguments": ["eax", "ecx"]},
-    "ui_widgets_initialize": {"address": "0x49a940", "replace": true},
     "ui_widget_delete_recursive": {"address": "0x49ab90", "replace": false, "arguments": ["0"]},
-    "ui_widget_new_history_node": {"address": "0x49c3c0", "replace": true, "arguments": ["esi", "edi"]},
-    "ui_widget_new_instance": {"address": "0x49c710", "replace": true, "arguments": ["0", "4", "ecx", "eax", "edx"]},
-    "ui_widget_load_by_name_or_tag": {"address": "0x49aa00", "replace": true, "use_return_value": true, "arguments": ["0", "4", "8", "12", "16", "20", "24"]},
-    "ui_widget_load_children_recursive": {"address": "0x49c4d0", "replace": true, "use_return_value": true, "arguments": ["0", "esi"]},
     "ui_widget_event_handler_dispatch": {"address": "0x49d3c0", "replace": false, "arguments": ["0", "4", "8", "12", "16"]},
-    "ui_widget_instance_give_focus_directly": {"address": "0x49eb30", "replace": true, "arguments": ["eax", "ecx"]},
     "ui_widget_text_box_is_focused": {"address": "0x49cc40", "replace": false, "use_return_value": true, "arguments": ["eax"]},
     "ui_widget_render_text_box": {"address": "0x49e160", "replace": false, "arguments": ["0", "4", "8", "12", "16"]},
     "ui_widget_render_spinner_list": {"address": "0x49e4f0", "replace": false, "arguments": ["0", "4", "8", "12", "16"]},
     "ui_widget_render_column_list_og": {"address": "0x49ea50", "replace": false, "arguments": ["0", "4", "8", "12", "edi"]},
-    "ui_widget_instance_render_recursive": {"address": "0x49d850", "replace": true, "arguments": ["0", "4", "8", "12", "16"]},
-    "ui_cursor_render": {"address": "0x49a2e0", "replace": true},
-    "ui_widget_render": {"address": "0x49b450", "replace": true, "arguments": ["eax"]},
-    "ui_widget_adjust_spinner_list_bounds": {"address": "0x49c920", "replace": true, "arguments": ["eax", "ecx"]},
-    "ui_widget_get_cursor_focused_widget": {"address": "0x49ca60", "replace": true, "use_return_value": true, "arguments": ["0", "4", "8", "12"]},
-    "ui_widget_is_cursor_over": {"address": "0x49c980", "replace": true, "use_return_value": true, "arguments": ["eax"]},
-    "ui_widget_update_player_profile_text": {"address": "0x49f6a0", "replace": true, "arguments": ["0", "ebx"]},
     "ui_widget_play_feedback_sound": {"address": "0x49be20", "replace": false, "arguments": ["eax"]},
     
     "ui_error_modal_show": {"address": "0x49beb0", "replace": false, "arguments": ["0", "4", "8", "12"]},
     
-    "ui_virtual_keyboard_initialize": {"address": "0x4ab900", "replace": true, "use_return_value": true},
-    "ui_virtual_keyboard_launch": {"address": "0x4ab9b0", "replace": true, "use_return_value": true, "arguments": ["0", "4", "esi"]},
-    "ui_virtual_keyboard_render": {"address": "0x4ac520", "replace": true},
-    "ui_virtual_keyboard_render_prompt": {"address": "0x4ac310", "replace": true, "arguments": ["0"]},
-    "ui_virtual_keyboard_cancel": {"address": "0x4ac260", "replace": true, "use_return_value": true},
-    "ui_virtual_keyboard_backspace": {"address": "0x4ac700", "replace": true},
-    "ui_virtual_keyboard_process": {"address": "0x4abbf0", "replace": true},
     "ui_virtual_keyboard_validate_input_character": {"address": "0x4abb90", "replace": false, "use_return_value": true, "arguments": ["ecx", "eax"]},
-    
-    "string_contains_non_whitespace": {"address": "0x4abb20", "replace": true, "use_return_value": true, "arguments": ["eax"]},
-    
-    "ui_widget_update_multiplayer_type_menu_extended_description": {"address": "0x4a7d00", "replace": true, "arguments": ["0"]},
-    
-    "loading_screen_render": {"address": "0x49a370", "replace": true},
-    "scoreboard_render": {"address": "0x4682b0", "replace": true, "arguments": ["0", "4"]},
-    "scoreboard_draw_row": {"address": "0x4662a0", "replace": true, "arguments": ["0", "4", "eax", "edx"]},
-    "pgcr_draw_row_text": {"address": "0x45e000", "replace": true, "arguments": ["0", "4", "ecx"]},
-    "pgcr_draw": {"address": "0x45e090", "replace": true},
     
     "stack_memory_pool_new_block": {"address": "0x4d5310", "replace": false, "use_return_value": true, "arguments": ["ecx", "eax"]},
     "memory_pool_resize_block_og": {"address": "0x4d5380", "replace": false, "use_return_value": true, "arguments": ["0", "esi", "eax"]},
@@ -69,11 +31,7 @@
     "console_printf_in": {"address": "0x499ab0", "replace": false, "arguments": ["eax", "4", "8"], "comment": "takes variable args but the bridge doesn't support varargs so two are passed for now plus color"},
 
     "bitmap_load": {"address": "0x444eb0", "replace": false, "use_return_value": true, "arguments": ["0", "4", "eax"]},
-    "bitmap_group_sequence_get_bitmap_for_frame": {"address": "0x43f290", "replace": true, "use_return_value": true, "arguments": ["eax", "0", "edi"]},
-    "bitmap_mipmap_get_pixel_count": {"address": "0x43fc10", "replace": true, "disabled": true, "use_return_value": true, "arguments": ["ecx", "esi"]},
-    "bitmap_get_pixel_data_size": {"address": "0x43fb70", "replace": true, "disabled": true, "use_return_value": true, "arguments": ["eax"], "comment": "for some reason crashes the game when enabled"},
     "bitmap_draw_in_rect": {"address": "0x49bab0", "replace": false, "arguments": ["0", "4", "8", "ecx", "eax"]},
-    "bitmap_draw": {"address": "0x497b20", "replace": true, "arguments": ["0", "4", "8", "12", "16", "eax"]},
     "bitmap_address_for_pixel": {"address": "0x43f8e0", "replace": false, "use_return_value": true, "arguments": ["0", "4", "eax", "edi"]},
     
     "shader_get_vertex_shader_permutation": {"address": "0x543160", "replace": false, "use_return_value": true, "arguments": ["ecx"]},
@@ -99,42 +57,18 @@
     "rasterizer_screen_effect_set_texture_transforms": {"address": "0x52fef0", "replace": true, "arguments": ["0", "4", "8", "12", "ecx", "eax"]},
     "d3d_get_fvf_vertex_size": {"address": "0x586e9e", "replace": true, "disabled": true, "use_return_value": true, "arguments": ["0"]},
     
-    "rasterizer_hud_motion_sensor_blip_begin": {"address": "0x52e750", "replace": true},
-    "rasterizer_hud_motion_sensor_blip_draw": {"address": "0x52eb90", "replace": true, "arguments": ["0", "4", "eax", "edi"]},
-    "rasterizer_hud_motion_sensor_blip_end": {"address": "0x52ed00", "replace": true, "arguments": ["0", "ebx"]},
-
-    "rasterizer_screen_geometry_draw": {"address": "0x5200a0", "replace": true, "arguments": ["eax", "0"]},
-    "rasterizer_screen_geometry_draw_quad": {"address": "0x44a0f0", "replace": true, "arguments": ["ecx", "eax"]},
-
     "rasterizer_shader_transparent_water_draw": {"address": "0x539310", "replace": true, "arguments": ["0"]},
     "rasterizer_shader_transparent_water_render_bumpmap": {"address": "0x538380", "replace": true, "arguments": ["0"]},
-    
-    "rasterizer_font_initialize": {"address": "0x5180c0", "replace": true, "use_return_value": true},
-    "rasterizer_font_cache_flush": {"address": "0x518550", "replace": true},
 
-    "rasterizer_bitmap_font_begin_text_draw": {"address": "0x534ae0", "replace": true, "arguments": ["edi"]},
-    "rasterizer_bitmap_font_end_text_draw": {"address": "0x534df0", "replace": true},
     "rasterizer_bitmap_font_draw_character_with_shadow": {"address": "0x518580", "replace": false, "arguments": ["0", "4", "8", "12", "16", "20", "24", "28", "32", "36"]},
-    "rasterizer_bitmap_font_set_up_vertex_shader_constants": {"address": "0x534a10", "replace": true},
-    "rasterizer_bitmap_font_cache_font_character": {"address": "0x518770", "replace": true, "arguments": ["0", "4"]},
     "rasterizer_bitmap_font_draw_unicode_string_and_hack_in_icons": {"address": "0x49dd70", "replace": false, "arguments": ["0", "4", "edx"]},
     
     "bitmap_font_draw_unicode_string": {"address": "0x559bf0", "replace": false, "arguments": ["0", "4", "8", "12", "16", "20"]},
     "bitmap_font_draw_string": {"address": "0x559870", "replace": false, "use_return_value": true, "arguments": ["0", "4", "8", "12", "16", "20"]},
     "bitmap_font_calculate_draw_bounds": {"address": "0x5596a0", "replace": false, "arguments": ["0", "4", "8", "12", "16", "20", "24", "28", "32", "36"]},
     
-    "text_set_drawing_parameters": {"address": "0x559820", "replace": true, "arguments": ["0", "4", "8", "ecx", "eax"]},
     "text_draw_initialize_for_new_map": {"address": "0x5595f0", "replace": false},
-    "text_draw_string": {"address": "0x518150", "replace": true, "arguments": ["ecx", "eax", "0", "4", "8"]},
-    "text_draw_unicode_string": {"address": "0x518350", "replace": true, "arguments": ["ecx", "eax", "0", "4", "8"]},
-    "text_calculate_unicode_string_draw_bounds": {"address": "0x559710", "replace": true, "arguments": ["0", "ebx", "esi", "edi"]},
     
-    "unicode_string_list_get_string": {"address": "0x55ad90", "replace": true, "use_return_value": true, "arguments": ["ecx", "edx"]},
-    
-    "string_parse_state_init": {"address": "0x559f70", "replace": true, "arguments": ["0", "4", "ecx", "edx", "ebx", "esi"]},
-    "string_parse_unicode_string": {"address": "0x55a380", "replace": true, "use_return_value": true, "arguments": ["eax"]},
-    "string_calculate_line_break": {"address": "0x55a9a0", "replace": true, "use_return_value": true, "arguments": ["ecx", "0"]},
-
     "saved_games_read_player_profile": {"address": "0x53dad0", "replace": false, "use_return_value": true, "arguments": ["0", "ecx"]},
     "saved_games_write_player_profile": {"address": "0x53dcb0", "replace": false, "arguments": ["0", "4"]},
     "saved_game_file_get_path_to_enclosing_directory": {"address": "0x5403e0", "replace": false, "use_return_value": true, "arguments": ["eax", "esi"]},
@@ -142,22 +76,11 @@
     "saved_games_name_is_from_player_profile": {"address": "0x498dd0", "replace": false, "use_return_value": true, "arguments": ["0"]},
     
     "game_variant_is_not_stock": {"address": "0x4abb60", "replace": false, "use_return_value": true, "arguments": ["edi"]},
-
-    "object_get_and_verify_type": {"address": "0x4fa7d0", "replace": true, "use_return_value": true, "arguments": ["ecx", "0"]},
-    "object_placement_data_new": {"address": "0x4f8cb0", "replace": true, "use_return_value": true, "arguments": ["eax", "0", "4"]},
-    "objects_initialize": {"address": "0x4f83e0", "replace": true},
-    "objects_initialize_for_new_map": {"address": "0x4f84c0", "replace": true},
-    "object_new_cluster_partition_globals": {"address": "0x555270", "replace": true, "use_return_value": true, "arguments": ["esi", "edi"] },
     
     "unit_get_camera_position": {"address": "0x56c440", "replace": false, "arguments": ["ecx", "eax"]},
 
     "weapon_build_weapon_interface_state": {"address": "0x4c5d90", "replace": false, "arguments": ["eax", "0"] },
-    "hud_draw_bitmap_internal": {"address": "0x4b0140", "replace": true, "arguments": ["0", "4", "8", "12", "16", "20", "esi", "eax"] },
-    "hud_calculate_point": {"address": "0x4aea80", "replace": true, "arguments": ["0", "edx", "ecx", "eax", "4", "8"] },
-    "hud_calculate_bitmap_bounds": {"address": "0x4b0040", "replace": true, "arguments": ["0", "esi", "edx", "eax", "ecx"] },
-    "hud_draw_bitmap_with_meter": {"address": "0x4afec0", "replace": true, "arguments": ["0", "4", "8", "12", "16", "20", "ecx", "edx", "eax", "ebx"] },
     "hud_draw_meter": {"address": "0x4aefb0", "replace": true, "arguments": ["0", "4", "8", "12", "16", "20", "esi"] },
-    "hud_draw_message": {"address": "0x462a80", "replace": true, "arguments": ["0", "4"] },
     "hud_initialize": {"address": "0x4ac790", "replace": false},
     "hud_initialize_for_new_map": {"address": "0x4ac8e0", "replace": false},
     
@@ -167,10 +90,6 @@
     "loading_screen_abort_connection": {"address": "0x4adb40", "replace": false },
     "loading_screen_timeout_connection": {"address": "0x5b9d00", "replace": false, "arguments": ["0"] },
 
-    "cutscene_cinematic_render": {"address": "0x44a330", "replace": true },
-
-    "render_project_point_to_screen_space": {"address": "0x511740", "replace": true, "use_return_value": true, "arguments": ["edi", "esi", "edx", "ecx"]},
-
     "widgets_initialize": {"address": "0x5032e0", "replace": false },
     "widgets_initialize_for_new_map": {"address": "0x503320", "replace": false },
     "object_types_initialize": {"address": "0x4f76c0", "replace": false },
@@ -178,16 +97,8 @@
     "lights_initialize_for_new_map": {"address": "0x4f43b0", "replace": false },
     "game_state_memory_pool_new": {"address": "0x53b430", "replace": false, "use_return_value": true, "arguments": ["0", "ebx"] },
     "game_state_savegame_write_thread": {"address": "0x53bcd0", "replace": false },
-    "game_state_initialize_savegame": {"address": "0x53b940", "replace": true, "use_return_value": true, "arguments": ["0", "ecx"] },
-    "game_state_initialize": {"address": "0x53b270", "replace": true},
-    "game_state_open_savegame": {"address": "0x53cc30", "replace": true, "use_return_value": true, "arguments": ["0"]},
 
     "cache_file_read_request": {"address": "0x443410", "replace": false, "use_return_value": true, "arguments": ["0", "4", "8", "12", "16", "esi"]},
-
-    "terminal_initialize": {"address": "0x499330", "replace": true},
-
-    "interface_initialize": {"address": "0x497100", "replace": true},
-    "interface_initialize_for_new_map": {"address": "0x497150", "replace": true},
 
     "seh_exception_handler": {"address": "0x5cd84c", "replace": true, "use_return_value": true, "arguments": ["0", "4", "8", "12"]}
 }

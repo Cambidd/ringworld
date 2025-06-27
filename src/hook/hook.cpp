@@ -46,8 +46,8 @@ extern "C" void set_up_ringworld_hooks(Platform platform) {
                 set_game_variables();
                 set_up_game_hooks();
                 set_up_transparent_generic_hooks();
-                set_up_game_state_hooks();
-                set_up_hud_hooks();
+                // set_up_game_state_hooks();
+                // set_up_hud_hooks();
                 break;
             case RW_PLATFORM_DEDICATED_SERVER:
                 ringworld_server_mode = true;
