@@ -20,10 +20,10 @@ void set_up_transparent_generic_hooks() {
     *switch_case_address = reinterpret_cast<uint32_t>(shader_transparent_generic_switch_case_asm);
     VirtualProtect(reinterpret_cast<void *>(switch_case_address), 4, old_protection, &old_protection);
 
-    auto *map_load_thing_call = reinterpret_cast<std::byte *>(0x442851);
+    auto *map_load_thing_call = reinterpret_cast<std::byte *>(0x45BA26);
     auto *instance_update = reinterpret_cast<std::byte *>(shader_transparent_generic_update_instances_asm);
-    map_load_thing = reinterpret_cast<std::byte *>(0x443600);
-    map_load_thing_return = reinterpret_cast<std::byte *>(0x442856);
+    map_load_thing = reinterpret_cast<std::byte *>(0x518FE0);
+    map_load_thing_return = reinterpret_cast<std::byte *>(0x45BA2b);
 
     VirtualProtect(reinterpret_cast<void *>(map_load_thing_call), 5, PAGE_READWRITE, &old_protection);
     *reinterpret_cast<std::uint8_t *>(map_load_thing_call) = 0xE9;

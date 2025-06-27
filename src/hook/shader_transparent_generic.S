@@ -14,10 +14,10 @@ _shader_transparent_generic_switch_case_asm:
 
 .globl _shader_transparent_generic_update_instances_asm
 _shader_transparent_generic_update_instances_asm:
+    call dword ptr [_map_load_thing]
     pushfd
     pushad
     call _rasterizer_shader_transparent_generic_update_instances_for_current_map
     popad
     popfd
-    call dword ptr [_map_load_thing]
     jmp dword ptr [_map_load_thing_return]
