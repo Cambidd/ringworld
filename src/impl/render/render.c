@@ -8,7 +8,9 @@
 extern RenderGlobals *render_globals;
 extern bool *fog_enable;
 extern bool *rasterizer_enable_user_interface_render;
-bool rasterizer_enable_widescreen_support = true;
+bool rasterizer_enable_widescreen_support = false;
+float default_half_width_inverted = 2.0f / RASTERIZER_SCREEN_BASE_WIDTH;
+float *half_width_inverted = NULL;
 
 RenderGlobals *render_get_globals(void) {
     return render_globals;
@@ -20,7 +22,7 @@ bool render_get_fog_enabled(void) {
 
 uint16_t render_get_screen_width(void) {
     RasterizerDx9RenderTarget *render_target = rasterizer_dx9_render_target_get(RENDER_TARGET_BACK_BUFFER);
-    if(rasterizer_enable_widescreen_support && render_target->width > render_target->height) {
+    if(render_widescreen_support_enabled() && render_target->width > render_target->height) {
         float aspect_ratio = (float)render_target->width / (float)render_target->height;
         float width = math_float_to_long(RASTERIZER_SCREEN_BASE_HEIGHT * aspect_ratio);
         return (uint16_t)width;
@@ -30,7 +32,7 @@ uint16_t render_get_screen_width(void) {
 
 uint16_t render_get_screen_height(void) {
     RasterizerDx9RenderTarget *render_target = rasterizer_dx9_render_target_get(RENDER_TARGET_BACK_BUFFER);
-    if(rasterizer_enable_widescreen_support && render_target->height > render_target->width) {
+    if(render_widescreen_support_enabled() && render_target->height > render_target->width) {
         float aspect_ratio = (float)render_target->height / (float)render_target->width;
         float height = math_float_to_long(RASTERIZER_SCREEN_BASE_WIDTH * aspect_ratio);
         return (uint16_t)height;
@@ -43,6 +45,10 @@ bool render_user_interface_enabled(void) {
 }
 
 bool render_widescreen_support_enabled(void) {
+    half_width_inverted = (float *)(0x52023C);
+    if(half_width_inverted) {
+        rasterizer_enable_widescreen_support = (*half_width_inverted != default_half_width_inverted) ? true : false;
+    }
     return rasterizer_enable_widescreen_support;
 }
 
