@@ -27,12 +27,12 @@ void *game_state_allocate_heap(size_t size) {
     return allocated;
 }
 
-void *game_state_table_new(const char *name, uint16_t maximum_count, uint16_t element_size) {
+/* void *game_state_table_new(const char *name, uint16_t maximum_count, uint16_t element_size) {
     size_t allocation_amount = CALCULATE_ALLOCATION_SIZE(maximum_count, element_size);
     GenericTable *table = game_state_allocate_heap(allocation_amount);
     table_initialize(table, name, maximum_count, element_size);
     return table;
-}
+} */
 
 void *game_state_initialize_savegame(size_t game_state_size, size_t hs_state_size) {
     ManagedHeapMap *managed_heap = memory_map_get();

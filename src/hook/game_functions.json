@@ -6,7 +6,7 @@
     
     "object_attach_to_marker": {"address": "0x4f9a90", "replace": false, "arguments": ["0", "4", "esi", "edi"]},
 
-    "game_state_table_new": {"address": "0x53b3b0", "replace": true, "use_return_value": true, "arguments": ["0", "4", "ebx"]},
+    "game_state_table_new": {"address": "0x53b3b0", "replace": false, "use_return_value": true, "arguments": ["0", "4", "ebx"]},
     "table_new": {"address": "0x4d3770", "replace": true, "use_return_value": true, "arguments": ["0", "4", "ebx"]},
     "table_remove_element": {"address": "0x4d3910", "replace": false, "arguments": ["eax", "edx"]},
     "crc32_calculate": {"address": "0x4d36d0", "replace": false, "arguments": ["0", "4", "8"]},
@@ -42,7 +42,6 @@
     "rasterizer_transparent_geometry_group_draw_vertices": {"address": "0x536550", "replace": false, "arguments": ["0", "ecx"]},
     "rasterizer_transparent_geometry_group_draw": {"address": "0x536740", "replace": false, "arguments": ["0", "4"]},
     "numeric_countdown_timer_get": {"address": "0x5434c0", "replace": false, "use_return_value": true, "arguments": ["eax"]},
-    "rasterizer_shader_transparent_chicago_draw": {"address": "0x534e30", "replace": true, "arguments": ["0", "4"]},
     "rasterizer_shader_transparent_chicago_preprocess": {"address": "0x53ae90", "replace": false, "use_return_value": true, "arguments": ["ebx"]},
     "rasterizer_shaders_blob_decrypt": {"address": "0x51d080", "replace": true, "use_return_value": true, "arguments": ["ebx", "eax"]},
     "rasterizer_shaders_blob_read_file": {"address": "0x51d0f0", "replace": true, "use_return_value": true, "arguments": ["0", "4", "ecx"]},

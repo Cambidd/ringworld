@@ -114,5 +114,6 @@
     "text_draw_font": {"type": "Font *", "address": "0x67f6dc"},
     "input_globals": {"type": "InputGlobals", "address": "0x64c528"},
     "input_flags": {"type": "uint8_t", "address": "0x6ad572"},
-    "input_events_globals": {"type": "InputEventsGlobals", "address": "0x6add08"}
+    "input_events_globals": {"type": "InputEventsGlobals", "address": "0x6add08"},
+    "af_is_enabled": {"type": "bool", "address": "0x6bde38"}
 }

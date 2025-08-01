@@ -21,6 +21,9 @@
 #include "rasterizer_geometry_group.h"
 #include "rasterizer_shader_transparent_generic.h"
 
+extern bool *af_is_enabled;
+extern D3DCAPS9 d3d9_device_caps;
+
 enum {
     NUM_OF_SHADER_COMPILE_DEFINES = 10
 };
@@ -526,11 +529,18 @@ void rasterizer_shader_transparent_generic_draw(TransparentGeometryGroup *group,
                 #undef SELECT_TEXTURE_MODE_IF_CLAMPED
                 #undef SELECT_TEXTURE_MODE_IF_FIRST_MAP
 
+                uint32_t filter_type = D3DTEXF_LINEAR;
+                if(*af_is_enabled && (d3d9_device_caps.RasterCaps & D3DPRASTERCAPS_ANISOTROPY) != 0 && 1 < d3d9_device_caps.MaxAnisotropy) {
+                    uint32_t max_anisotropy = d3d9_device_caps.MaxAnisotropy < 16 ? d3d9_device_caps.MaxAnisotropy : 16;
+                    rasterizer_dx9_set_sampler_state(map_index, D3DSAMP_MAXANISOTROPY, max_anisotropy);
+                    filter_type = D3DTEXF_ANISOTROPIC;
+                }
+
                 rasterizer_dx9_set_sampler_state(map_index, D3DSAMP_ADDRESSU, u_texture_mode);
                 rasterizer_dx9_set_sampler_state(map_index, D3DSAMP_ADDRESSV, v_texture_mode);
                 rasterizer_dx9_set_sampler_state(map_index, D3DSAMP_ADDRESSW, w_texture_mode);
-                rasterizer_dx9_set_sampler_state(map_index, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
-                rasterizer_dx9_set_sampler_state(map_index, D3DSAMP_MINFILTER, map->flags.unfiltered ? D3DTEXF_POINT : D3DTEXF_LINEAR);
+                rasterizer_dx9_set_sampler_state(map_index, D3DSAMP_MAGFILTER, filter_type);
+                rasterizer_dx9_set_sampler_state(map_index, D3DSAMP_MINFILTER, map->flags.unfiltered ? D3DTEXF_POINT : filter_type);
                 rasterizer_dx9_set_sampler_state(map_index, D3DSAMP_MIPFILTER, map->flags.unfiltered ? D3DTEXF_POINT : D3DTEXF_LINEAR);
 
                 rasterizer_dx9_texture_set_bitmap_data_texture(map_index, bitmap_type, BITMAP_USAGE_ALPHA_BLEND, bitmap_data_index, map->parameters.map.tag_handle);
