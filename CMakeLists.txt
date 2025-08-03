@@ -16,7 +16,7 @@ if(NOT (CMAKE_SIZEOF_VOID_P EQUAL 4))
     message(FATAL_ERROR "This can only be built for 32-bit Windows. You are trying to build for ${BITNESS}-bit which is not allowed.")
 endif()
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 find_package(LuaRuntime REQUIRED)
 find_package(Python3 COMPONENTS Interpreter REQUIRED)
