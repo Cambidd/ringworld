@@ -36,7 +36,7 @@ D3DFORMAT rasterizer_dx9_texture_get_d3d_format(BitmapDataFormat format) {
             return D3DFMT_UNKNOWN;         
     }
 }
-
+/* 
 bool rasterizer_dx9_texture_create(BitmapData *bitmap) {
     ASSERT(bitmap != NULL);
     
@@ -106,7 +106,7 @@ bool rasterizer_dx9_texture_create(BitmapData *bitmap) {
 
     return true;
 }
-
+ */
 bool rasterizer_dx9_texture_set_bitmap_data_texture_no_assert(uint32_t stage, uint16_t bitmap_data_index, TagHandle bitmap_tag) {
     ASSERT(stage >= 0 && stage < 4);
 

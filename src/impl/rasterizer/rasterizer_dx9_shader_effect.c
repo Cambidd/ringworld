@@ -10,6 +10,7 @@
 #include "rasterizer_dx9.h"
 #include "rasterizer_shaders_blob.h"
 #include "rasterizer_dx9_shader_effect.h"
+#include "rasterizer_shader_transparent_generic.h"
 
 enum {
     RESTORED_SHADER_EFFECT_HUD_METERS,
@@ -104,6 +105,7 @@ bool rasterizer_dx9_shader_effect_load_collection_from_binary(void) {
 }
 
 void rasterizer_dx9_shader_effects_dispose(void) {
+    rasterizer_shader_transparent_generic_clear_instances();
     for(size_t i = 0; i < *effect_collection_effect_count; i++) {
         RasterizerDx9ShaderEffect *effect = &(*effect_collection_buffer)[i];
         for(size_t j = 0; j < effect->pixel_shader_count; j++) {
